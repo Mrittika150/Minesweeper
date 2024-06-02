@@ -61,4 +61,7 @@ public class Minefield {
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
                 mines[row][col] = false;
-                adjacentMines[row][col] = 0;}}}}
+                adjacentMines[row][col] = 0;}
+        }
+    }
+}
