@@ -7,7 +7,7 @@ public class GameState {
         LOST
     }
     private State current;
-    private int elaspedSeconds;
+    private int elapsedSeconds;
     private javax.swing.Timer timer;
     private int flagsPlaced;
     private int mineCount;
@@ -19,7 +19,7 @@ public class GameState {
 
     public void reset() {
         current = State.WAITING;
-        elaspedSeconds = 0;
+        elapsedSeconds = 0;
         flagsPlaced = 0;
         if(timer != null) {
             timer.stop();
@@ -28,11 +28,16 @@ public class GameState {
 
     public void startGame() {
         current = State.PLAYING;
-        elaspedSeconds = 0;
+        elapsedSeconds = 0;
         timer = new javax.swing.Timer(1000, e -> {
-            elaspedSeconds++;
+            elapsedSeconds++;
         });
         timer.start();
+    }
+
+    public void win(){
+        current = State.WON;
+        timer.stop();
     }
 
     public void lose(){
@@ -51,11 +56,11 @@ public class GameState {
         return current;
     }
 
-    public int getElaspedSeconds(){
-        return elaspedSeconds;
+    public int getElapsedSeconds(){
+        return elapsedSeconds;
     }
 
-    public int getRemainingSeconds(){
+    public int getRemainingMines(){
         return mineCount - flagsPlaced;
     }
 

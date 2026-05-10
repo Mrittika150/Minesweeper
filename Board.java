@@ -32,7 +32,7 @@ public class Board {
             int r = random.nextInt(rows);
             int c = random.nextInt(cols);
 
-            if (grid[r][c].isMine()|| r== safeRow && c== safeCol) {
+            if (grid[r][c].isMine()|| (r== safeRow && c== safeCol)) {
                 continue;
             }
             grid[r][c].setMine(true);
@@ -105,6 +105,15 @@ public class Board {
             }
         }
         return true;
+    }
+
+    public void reset(){
+        minesPlaced = false;
+        for(int r = 0; r < rows; r++) {
+            for(int c = 0; c < cols; c++) {
+                grid[r][c].reset();
+            }
+        }
     }
 
     public Cell getCell(int r, int c) {

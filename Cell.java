@@ -13,7 +13,7 @@ public class Cell {
 
     public void reveal(){
         if(!isFlagged) {
-            isFlagged = true;
+            isRevealed = true;
         }
     }
 
